@@ -211,3 +211,4 @@ __marimo__/
 *.csv
 *.jpg
 *.DS_Store
+*.db
