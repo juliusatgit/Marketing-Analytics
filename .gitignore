@@ -210,3 +210,4 @@ __marimo__/
 # data files
 *.csv
 *.jpg
+*.DS_Store
