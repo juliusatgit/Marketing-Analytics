@@ -70,8 +70,48 @@ def apply_umap(embedding_matrix, n_components=2, random_state=42):
     return reducer.fit_transform(embedding_matrix)
 
 
-   
 
+ 
+
+def generate_cluster_names(df, cluster_col='cluster', feature_col='category_name', top_n=2):
+    """
+    Automatically generates descriptive names for each cluster based on 
+    the most frequent items in a specific metadata column (e.g., category_name).
+    """    
+    cluster_naming_dict = {}
+    
+    # Get unique clusters, sorted
+    clusters = sorted(df[cluster_col].unique())
+    
+    for c in clusters:
+        # Filter data for the current cluster
+        cluster_data = df[df[cluster_col] == c]
+              
+        # Get the most frequent categories in this cluster
+        top_categories_raw = cluster_data[feature_col].astype(str).str.split(",").str[0].str.strip().value_counts().head(top_n).index.tolist()
+
+        # Clean up and remove duplicates 
+        # (e.g. if Top 1 and Top 2 are somehow identical after formatting)
+        unique_clean_categories = []
+        for cat in top_categories_raw:
+            clean_cat = str(cat).strip().title()
+            if clean_cat not in unique_clean_categories:
+                unique_clean_categories.append(clean_cat)
+        
+        # Join the clean, unique categories
+        cluster_name = " & ".join(unique_clean_categories)
+        
+        # Save to dictionary
+        cluster_naming_dict[c] = str(cluster_name)
+        
+        print(f"Cluster {c} contains mainly: {cluster_name}")
+        
+    return cluster_naming_dict
+
+
+
+
+# PLOT FUNCTIONS
 
 def plot_2d_projection(X_2d, labels, title="2D Projection", palette="tab10"):
     """
