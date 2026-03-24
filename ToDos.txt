@@ -1,0 +1,1 @@
+- check what clothes are profitable (individually and on cluster level) - retailPrice and renting history available 
