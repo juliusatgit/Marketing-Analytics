@@ -1,6 +1,7 @@
 - check what clothes are profitable (individually and on cluster level) - retailPrice and renting history available
 - check normalization/transformation (log normalization) of dependent variable (revenue) - sometimes models are better when not having a wide range of values
 - could a different metric the model optimizes for result in a lower MAE (better prediction)
+- inclusion of norwegian lockdowns during covid in the data - could impact data quality
 
 Notes from presentation of other groups
 - latent class regression/finite class regression (architecture of other group)
