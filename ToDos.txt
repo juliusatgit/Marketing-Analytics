@@ -1,1 +1,7 @@
-- check what clothes are profitable (individually and on cluster level) - retailPrice and renting history available 
+- check what clothes are profitable (individually and on cluster level) - retailPrice and renting history available
+- check normalization/transformation of dependent variable (revenue) - sometimes models are better when not having a wide range of values
+- could a different metric the model optimizes for result in a lower MAE (better prediction)
+
+Notes from presentation of other groups
+- latent class regression/finite class regression (architecture of other group)
+- Segmenting the customer based on RFM (check overlap with other features/variables) - high revenue customers make small part of dataset - 6 segments
